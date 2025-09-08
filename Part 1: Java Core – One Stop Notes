@@ -1,0 +1,247 @@
+🔹 1. Object-Oriented Programming (OOP) Concepts
+Encapsulation
+
+Wrapping data (fields) and behavior (methods) into one unit → class.
+
+Access controlled using access modifiers (private, protected, public).
+
+Example:
+
+class BankAccount {
+    private double balance;
+    public void deposit(double amount) { balance += amount; }
+    public double getBalance() { return balance; }
+}
+
+
+Interview Q: Why use encapsulation?
+A: Protects internal state, improves maintainability, and allows validation logic inside setters.
+
+Abstraction
+
+Hiding implementation, exposing only functionality.
+
+Achieved via abstract classes and interfaces.
+
+Example:
+
+interface Payment {
+    void process(double amount);
+}
+class CardPayment implements Payment {
+    public void process(double amount) { System.out.println("Card Payment"); }
+}
+
+
+Interview Q: Abstract class vs Interface?
+A:
+
+Abstract class → can have state (fields), constructors, and partial implementation.
+
+Interface → pure contract (since Java 8, can have default and static methods).
+
+Inheritance
+
+Allows reuse of code by creating a new class from an existing one.
+
+Example: class Dog extends Animal.
+
+Types: single, multilevel, hierarchical (Java doesn’t support multiple inheritance via classes).
+
+Interview Q: Why does Java not support multiple inheritance?
+A: To avoid diamond problem (ambiguity when two parents define same method). Interfaces solve this since methods must be explicitly implemented or resolved.
+
+Polymorphism
+
+"Many forms" → same method behaves differently.
+
+Compile-time (Overloading):
+
+void print(int a) {}
+void print(String s) {}
+
+
+Runtime (Overriding):
+
+class Animal { void sound() { } }
+class Dog extends Animal { void sound() { System.out.println("Bark"); } }
+
+
+Interview Q: Overloading vs Overriding?
+A: Overloading → same method name, different signature (compile-time).
+Overriding → subclass provides new implementation for superclass method (runtime).
+
+🔹 2. SOLID Principles
+
+S – Single Responsibility: Each class should have one job.
+Example: InvoiceCalculator vs InvoicePrinter.
+
+O – Open/Closed: Open for extension, closed for modification. Use inheritance/interfaces.
+
+L – Liskov Substitution: Subclasses should substitute parent without breaking logic.
+
+I – Interface Segregation: Many small interfaces > one fat interface.
+
+D – Dependency Inversion: Depend on abstractions, not concrete classes. Spring promotes this with DI.
+
+Interview Q: Can you give a real-world SOLID example?
+A: In my Spring project, instead of one PaymentService, I created PaymentProcessor interface and implemented CardPayment and UPIPayment. This follows SRP, OCP, and DIP.
+
+🔹 3. Collections Framework
+List vs Set
+
+List → ordered, allows duplicates (ArrayList, LinkedList).
+
+Set → unordered, unique elements (HashSet, TreeSet).
+
+Interview Q: When would you use Set over List?
+A: When uniqueness matters (e.g., storing emails). List is for ordered data (e.g., chat history).
+
+HashMap Deep Dive
+
+Stores key-value pairs.
+
+Internally → array of buckets, each bucket has a linked list / tree.
+
+Process:
+
+hashCode() → bucket index.
+
+Collision handled with chaining (linked list/tree).
+
+Java 8 → if list grows beyond threshold, converts to Red-Black Tree for O(log n) lookup.
+
+Interview Qs:
+
+What if two keys have same hashCode?
+→ Uses equals() to differentiate.
+
+What is load factor?
+→ Ratio (default 0.75). When exceeded, HashMap resizes (rehash).
+
+Concurrent Collections
+
+ConcurrentHashMap → Thread-safe alternative to HashMap. Uses segmented locks instead of locking entire map.
+
+CopyOnWriteArrayList → For read-heavy, write-light use cases.
+
+🔹 4. Java 8 Features
+Lambdas & Functional Interfaces
+
+Lambda: (a, b) -> a + b.
+
+Functional Interface: Single abstract method (@FunctionalInterface). Examples: Runnable, Function<T,R>.
+
+Interview Q: Why were lambdas introduced?
+A: To enable functional programming, concise syntax, and support for streams/APIs.
+
+Streams API
+
+Declarative data processing.
+
+Example:
+
+List<Integer> nums = Arrays.asList(1,2,3,4);
+int sum = nums.stream()
+              .filter(n -> n % 2 == 0)
+              .mapToInt(Integer::intValue)
+              .sum();
+
+
+Supports map, filter, reduce, collect.
+
+Lazy evaluation → intermediate ops don’t run until terminal op is called.
+
+Optional
+
+Avoids NullPointerException.
+
+Example:
+
+Optional<User> user = repo.findById(1L);
+user.ifPresent(u -> System.out.println(u.getName()));
+
+🔹 5. Multithreading & Concurrency
+Thread Lifecycle
+
+New → Thread t = new Thread().
+
+Runnable → after start().
+
+Running → picked by scheduler.
+
+Waiting/Timed Waiting → sleep(), join().
+
+Terminated → completed.
+
+synchronized
+
+Ensures mutual exclusion.
+
+Example:
+
+synchronized void increment() { count++; }
+
+volatile
+
+Ensures visibility of latest value across threads.
+
+Example: volatile boolean running = true;
+
+ExecutorService
+
+Manages thread pools.
+
+Example:
+
+ExecutorService ex = Executors.newFixedThreadPool(5);
+ex.submit(() -> System.out.println("Task"));
+ex.shutdown();
+
+
+Interview Q: Why use ExecutorService over creating Threads manually?
+A: Thread pool improves performance, reuses threads, better for scalability.
+
+🔹 6. Exception Handling
+Types
+
+Checked (compile-time): Must be handled (IOException).
+
+Unchecked (runtime): NullPointerException, IllegalArgumentException.
+
+Error: Serious system failure (OutOfMemoryError).
+
+Custom Exception
+class InvalidInputException extends RuntimeException {
+    InvalidInputException(String msg) { super(msg); }
+}
+
+Best Practices
+
+Use meaningful messages.
+
+Catch only what you can handle.
+
+Prefer try-with-resources for closing DB/file connections.
+
+🔹 7. Memory Management
+Stack vs Heap
+
+Stack → stores local variables, function calls. Faster, thread-specific.
+
+Heap → stores objects. Shared by threads, managed by GC.
+
+Garbage Collection
+
+Young Gen (Eden + Survivor).
+
+Old Gen (long-lived objects).
+
+Collectors:
+
+G1 GC → region-based, low pause.
+
+ZGC → sub-10ms pause, supports huge heaps.
+
+Interview Q: How to fix a memory leak?
+A: Use profilers (VisualVM, JProfiler), check for unclosed resources, remove static references, prefer weak references.
