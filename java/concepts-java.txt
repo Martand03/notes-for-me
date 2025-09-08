@@ -1,0 +1,224 @@
+ ✅ Core Java & Concurrency
+
+ 1️⃣ Explain the difference between volatile, synchronized, and Atomic variables in Java.
+
+ volatile → Ensures visibility of changes across threads (no caching in thread-local memory) but does not ensure atomicity.
+ synchronized → Ensures mutual exclusion (only one thread at a time) and visibility (happens-before relationship).
+ Atomic variables (java.util.concurrent.atomic) → Provide lock-free, thread-safe operations using CAS (Compare-And-Swap) at CPU level. They ensure atomicity + visibility without synchronization overhead.
+
+---
+
+ 2️⃣ How does the Java Memory Model (JMM) handle visibility and ordering of threads?
+
+ JMM defines rules of interaction between threads and memory.
+ Visibility: Changes made by one thread become visible to others only when written to main memory. `volatile`, `synchronized`, and `final` establish visibility guarantees.
+ Ordering: JMM prevents unwanted reordering using happens-before relationships:
+
+   Unlock → happens-before → Lock
+   Write to `volatile` → happens-before → Read of that variable
+   Thread start/join rules
+
+---
+
+ 3️⃣ What is the difference between CompletableFuture and traditional Future in Java?
+
+ Future (Java 5) → Only supports blocking `get()`, cannot chain tasks.
+ CompletableFuture (Java 8) →
+
+   Supports async, chaining, combining, and exception handling.
+   Example: `supplyAsync().thenApply().thenAccept()`.
+   Makes async programming more declarative and non-blocking.
+
+---
+
+ 4️⃣ Explain the difference between checked, unchecked, and error types in Java.
+
+ Checked Exception → Must be declared/handled (`IOException`, `SQLException`). Compile-time checked.
+ Unchecked Exception → Subclass of `RuntimeException` (`NullPointerException`, `IllegalArgumentException`). Not forced at compile-time.
+ Error → Serious problems that should not be caught (`OutOfMemoryError`, `StackOverflowError`).
+
+---
+
+ ✅ Java Memory & Performance
+
+ 5️⃣ How does Garbage Collection work in Java 17+ (G1 GC and ZGC)?
+
+ G1 GC (Garbage First)
+
+   Splits heap into regions.
+   Collects young + old regions concurrently.
+   Prioritizes regions with most garbage first → predictable pause times.
+
+ ZGC (Z Garbage Collector)
+
+   Ultra-low pause time (<10ms), scalable to TBs of heap.
+   Uses colored pointers and load barriers to manage references.
+   Runs most GC work concurrently with application threads.
+
+---
+
+ 6️⃣ What are memory leaks in Java, and how do you detect and fix them?
+
+ Memory Leak: Objects that are no longer needed but still referenced → GC can’t reclaim them.
+ Causes: Static references, unclosed resources, caches without eviction, thread-local misuse.
+ Detection: Tools like VisualVM, JProfiler, Eclipse MAT.
+ Fix: Remove unused references, use `WeakReference`, implement proper `close()`, clear thread-local variables.
+
+---
+
+ 7️⃣ How does Optional help in avoiding NullPointerException?
+
+ `Optional<T>` is a container that may or may not hold a value.
+ Avoids `null` checks → encourages functional style.
+ Example:
+
+  ```java
+  Optional.ofNullable(user)
+          .map(User::getName)
+          .orElse("Default");
+  ```
+ Ensures developers explicitly handle absence of values.
+
+---
+
+ ✅ Spring Core & Boot
+
+ 8️⃣ What is the difference between BeanFactory and ApplicationContext?
+
+ BeanFactory → Basic container, lazy initialization, lightweight.
+ ApplicationContext → Superset of BeanFactory. Supports AOP, events, internationalization, autowiring, eagerly loads singletons.
+
+---
+
+ 9️⃣ Explain the Spring Bean lifecycle (with example).
+
+1. Instantiate → Create bean instance.
+2. Populate properties → Set dependencies.
+3. Call `BeanNameAware`, `BeanFactoryAware`.
+4. Call `BeanPostProcessor` before init.
+5. Call `@PostConstruct` / `InitializingBean.afterPropertiesSet()`.
+6. Custom init method (if configured).
+7. Ready for use.
+8. On shutdown → `@PreDestroy`, `DisposableBean.destroy()`, custom destroy method.
+
+---
+
+ 🔟 What are @Lazy and @DependsOn annotations in Spring, and when to use them?
+
+ @Lazy → Bean is created only when first requested, not at startup. Useful for heavy or rarely used beans.
+ @DependsOn → Specifies bean creation order. Ensures one bean is initialized before another.
+
+---
+
+ 1️⃣1️⃣ How does Spring Boot auto-configuration work internally?
+
+ Uses @EnableAutoConfiguration + spring.factories.
+ Loads `META-INF/spring.factories` → Maps auto-config classes.
+ Uses Conditional annotations (`@ConditionalOnClass`, `@ConditionalOnMissingBean`) to configure beans only if conditions are met.
+
+---
+
+ 1️⃣2️⃣ What is the role of spring.factories in Spring Boot?
+
+ A configuration file (`META-INF/spring.factories`).
+ Lists all auto-configuration classes and Spring Boot listeners.
+ Example:
+
+  ```properties
+  org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.example.MyAutoConfiguration
+  ```
+
+---
+
+ 1️⃣3️⃣ How do you implement transaction management in Spring Boot?
+
+ Use @Transactional on methods/classes.
+ Configured via PlatformTransactionManager (JPA, JDBC, Hibernate).
+ Supports declarative (AOP-based) and programmatic transaction management.
+
+---
+
+ 1️⃣4️⃣ Explain the difference between @Transactional propagation types in Spring.
+
+ REQUIRED → Join existing transaction or create new (default).
+ REQUIRES\_NEW → Always create new, suspends old.
+ SUPPORTS → Runs within a transaction if one exists, else non-transactional.
+ MANDATORY → Must run inside existing transaction, else error.
+ NOT\_SUPPORTED → Run non-transactionally, suspends if exists.
+ NEVER → Must run without transaction, else error.
+ NESTED → Runs in nested transaction with rollback point.
+
+---
+
+ ✅ Spring Data JPA
+
+ 1️⃣5️⃣ What is the difference between JpaRepository and CrudRepository in Spring Data JPA?
+
+ CrudRepository → Basic CRUD operations.
+ JpaRepository → Extends CrudRepository + PagingAndSortingRepository + JPA-specific methods (`flush()`, `findAll(Sort)` etc.).
+
+---
+
+ 1️⃣6️⃣ How do you handle pagination and sorting in Spring Data JPA?
+
+ Use `Pageable` and `Sort`.
+
+  ```java
+  Page<User> users = userRepository.findAll(PageRequest.of(0, 10, Sort.by("name")));
+  ```
+
+---
+
+ 1️⃣7️⃣ How to implement a custom query in Spring Data JPA using @Query annotation?
+
+```java
+@Query("SELECT u FROM User u WHERE u.email = :email")
+User findByEmail(@Param("email") String email);
+```
+
+ Supports JPQL, native queries, SpEL expressions.
+
+---
+
+ ✅ Spring REST & Security
+
+ 1️⃣8️⃣ Explain how to implement exception handling in REST APIs using @ControllerAdvice and @ExceptionHandler.
+
+ @ControllerAdvice → Global exception handler.
+ @ExceptionHandler → Handles specific exception types.
+
+```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+   @ExceptionHandler(ResourceNotFoundException.class)
+   public ResponseEntity<String> handleNotFound(ResourceNotFoundException ex) {
+       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+   }
+}
+```
+
+---
+
+ 1️⃣9️⃣ How do you secure a REST API using Spring Security and JWT?
+
+1. Client authenticates → gets JWT token.
+2. Client sends JWT in Authorization: Bearer <token> header.
+3. Spring Security filter validates JWT.
+4. If valid → sets authentication in `SecurityContext`.
+
+ Requires JWT filter, UserDetailsService, PasswordEncoder.
+
+---
+
+ ✅ Microservices & Kafka
+
+ 2️⃣0️⃣ How do you design an event-driven microservice architecture using Spring Boot, Kafka, and REST APIs?
+
+ Producers → Publish events to Kafka topics.
+ Consumers → Subscribe and process asynchronously.
+ REST APIs → For synchronous queries/commands.
+ Spring Boot Kafka → Simplifies producer/consumer setup.
+ Event-driven benefits → Loose coupling, scalability, resilience.
+
+---
