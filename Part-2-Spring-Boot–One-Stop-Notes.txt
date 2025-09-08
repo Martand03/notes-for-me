@@ -1,0 +1,230 @@
+🔹 1. Core Annotations
+
+@SpringBootApplication
+
+Meta-annotation = @Configuration + @EnableAutoConfiguration + @ComponentScan.
+
+Entry point for Spring Boot apps.
+
+@RestController
+
+Combines @Controller + @ResponseBody.
+
+Returns JSON/XML instead of views.
+
+@Service
+
+Marks business logic layer. Helps with readability.
+
+@Repository
+
+Marks DAO layer. Converts DB exceptions into Spring’s DataAccessException.
+
+@Component
+
+Generic stereotype for beans when none of the above apply.
+
+@Autowired
+
+Injects dependencies automatically.
+
+Prefer constructor injection (better for immutability & testing).
+
+Interview Q: Difference between @Component, @Service, @Repository?
+👉 They are functionally same (all detected via component scan), but semantically different for readability and exception translation.
+
+🔹 2. Spring Bean Lifecycle
+
+Lifecycle Steps:
+
+Instantiation → Bean created.
+
+Dependency Injection → Properties injected.
+
+Aware Interfaces (if implemented):
+
+BeanNameAware, BeanFactoryAware, ApplicationContextAware.
+
+Initialization:
+
+@PostConstruct or afterPropertiesSet() (from InitializingBean).
+
+Ready to Use → Bean available.
+
+Destruction:
+
+@PreDestroy or destroy() (from DisposableBean).
+
+Example:
+
+@Component
+class ExampleBean implements InitializingBean, DisposableBean {
+    @PostConstruct
+    public void init() { System.out.println("PostConstruct"); }
+    @Override
+    public void afterPropertiesSet() { System.out.println("InitializingBean"); }
+    @PreDestroy
+    public void cleanup() { System.out.println("PreDestroy"); }
+    @Override
+    public void destroy() { System.out.println("DisposableBean"); }
+}
+
+🔹 3. AOP (Aspect-Oriented Programming)
+
+AOP → separates cross-cutting concerns (logging, security, transactions).
+
+Implemented using proxies in Spring.
+
+Key Terms:
+
+Aspect → class containing cross-cutting concern.
+
+Join Point → point in execution (method call).
+
+Advice → action taken at join point (@Before, @After, @Around).
+
+Pointcut → expression defining where advice applies.
+
+Example Logging Aspect:
+
+@Aspect
+@Component
+class LoggingAspect {
+    @Before("execution(* com.app.service.*.*(..))")
+    public void logBefore(JoinPoint jp) {
+        System.out.println("Executing: " + jp.getSignature());
+    }
+}
+
+
+Interview Q: How does Spring AOP work internally?
+👉 It uses JDK dynamic proxies for interfaces, and CGLIB proxies for classes.
+
+🔹 4. REST APIs in Spring Boot
+
+CRUD Example:
+
+@RestController
+@RequestMapping("/users")
+class UserController {
+    private final UserService service;
+
+    UserController(UserService service) { this.service = service; }
+
+    @PostMapping
+    ResponseEntity<UserDto> create(@Valid @RequestBody UserDto dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(dto));
+    }
+
+    @GetMapping("/{id}")
+    ResponseEntity<UserDto> get(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
+    }
+}
+
+
+Validation:
+
+Use @Valid and JSR-380 annotations (@NotNull, @Email, @Size).
+
+DTOs:
+
+Avoid exposing Entities directly. Map Entity ↔ DTO with tools like MapStruct or manual conversion.
+
+HTTP Status Codes:
+
+200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Internal Server Error.
+
+Interview Q: How do you handle large JSON requests efficiently?
+👉 Use Spring Batch or Streaming (Jackson Streaming API) to process in chunks.
+
+🔹 5. Error Handling
+
+Centralized Handling:
+
+@ControllerAdvice → Global exception handler.
+
+@ExceptionHandler → Handle specific exceptions.
+
+Example:
+
+@ControllerAdvice
+class GlobalExceptionHandler {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    ResponseEntity<String> handleNotFound(ResourceNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+}
+
+
+Best Practices:
+
+Return proper HTTP status codes.
+
+Use consistent error response model (timestamp, message, path).
+
+🔹 6. Security (Spring Security + JWT)
+
+Flow:
+
+User logs in → sends credentials.
+
+Server validates → generates JWT token with roles/expiry.
+
+Client sends token in Authorization: Bearer <token>.
+
+Filter (OncePerRequestFilter) validates JWT before passing request.
+
+Example JWT Filter:
+
+public class JwtAuthFilter extends OncePerRequestFilter {
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
+            throws ServletException, IOException {
+        String token = req.getHeader("Authorization");
+        if (token != null && validateToken(token)) {
+            UsernamePasswordAuthenticationToken auth = getAuth(token);
+            SecurityContextHolder.getContext().setAuthentication(auth);
+        }
+        chain.doFilter(req, res);
+    }
+}
+
+
+Role-based Access Control:
+
+@PreAuthorize("hasRole('ADMIN')")
+public void deleteUser(Long id) { ... }
+
+
+Interview Q: Difference between Authentication vs Authorization?
+👉 Authentication → verifies identity (login).
+Authorization → verifies what user can access (roles, permissions).
+
+🔹 7. Testing in Spring Boot
+
+Types of Tests:
+
+@WebMvcTest → for controllers (MockMvc).
+
+@DataJpaTest → for repositories (uses in-memory DB like H2).
+
+@SpringBootTest → full integration test.
+
+Mockito Example:
+
+@RunWith(MockitoJUnitRunner.class)
+class UserServiceTest {
+    @Mock UserRepository repo;
+    @InjectMocks UserService service;
+
+    @Test
+    void testFindUser() {
+        when(repo.findById(1L)).thenReturn(Optional.of(new User("John")));
+        assertEquals("John", service.findById(1L).getName());
+    }
+}
+
+
+Interview Q: Unit test vs Integration test?
+👉 Unit test → small, isolated, mocks dependencies.
+Integration test → tests multiple layers together, uses real DB or embedded server.
