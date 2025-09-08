@@ -1,0 +1,187 @@
+🔹 1. SQL Joins
+
+Types of Joins:
+
+INNER JOIN
+
+Returns rows where there is a match in both tables.
+
+SELECT e.name, d.dept_name
+FROM Employee e
+INNER JOIN Department d ON e.dept_id = d.id;
+
+
+LEFT JOIN (LEFT OUTER)
+
+Returns all rows from the left table, matched rows from right (null if no match).
+
+SELECT e.name, d.dept_name
+FROM Employee e
+LEFT JOIN Department d ON e.dept_id = d.id;
+
+
+RIGHT JOIN (RIGHT OUTER)
+
+Opposite of LEFT JOIN.
+
+FULL JOIN (FULL OUTER)
+
+Returns rows where there is a match in either left or right (or both).
+
+CROSS JOIN
+
+Cartesian product (all combinations).
+
+SELF JOIN
+
+Joining a table with itself (e.g., employee-manager relationship).
+
+Interview Q: Difference between INNER JOIN and LEFT JOIN?
+👉 INNER JOIN → only matched rows.
+LEFT JOIN → all rows from left, nulls where no match in right.
+
+🔹 2. Indexing
+
+What is an Index?
+
+Data structure (usually B-Tree or Hash) that speeds up retrieval.
+
+Types:
+
+Clustered Index → Data is physically stored in index order (1 per table).
+
+Non-clustered Index → Separate structure with pointers to data (multiple allowed).
+
+Composite Index → Index on multiple columns.
+
+Unique Index → Enforces uniqueness (e.g., email).
+
+Trade-offs:
+
+Pros: Faster SELECT, WHERE, JOIN queries.
+
+Cons: Slower INSERT/UPDATE/DELETE (due to index maintenance), takes extra space.
+
+Interview Q: When NOT to use an index?
+👉 Small tables, high-write workloads, or frequently updated columns.
+
+🔹 3. Transactions & ACID Properties
+
+Transaction: A unit of work (multiple queries executed together).
+
+ACID:
+
+A (Atomicity): All-or-nothing.
+
+C (Consistency): DB remains valid after transaction.
+
+I (Isolation): Transactions don’t interfere with each other.
+
+D (Durability): Once committed, survives failures.
+
+Isolation Levels (SQL Standard):
+
+Read Uncommitted → Dirty reads allowed.
+
+Read Committed → Prevents dirty reads (default in many DBs).
+
+Repeatable Read → Prevents non-repeatable reads.
+
+Serializable → Strictest, full isolation.
+
+Common Problems:
+
+Dirty Read: Read uncommitted data.
+
+Non-repeatable Read: Same query gives different results within one transaction.
+
+Phantom Read: New rows appear when re-running query.
+
+🔹 4. Normalization & Denormalization
+
+Normalization:
+Process of structuring data to reduce redundancy and improve integrity.
+
+1NF: No repeating groups, atomic columns.
+
+2NF: 1NF + no partial dependency on part of primary key.
+
+3NF: 2NF + no transitive dependencies.
+
+BCNF: Stronger form of 3NF.
+
+Denormalization:
+
+Combining tables for faster queries at cost of redundancy.
+
+Example: Keeping customer_name in Orders table to avoid JOIN on every query.
+
+Interview Q: When would you denormalize?
+👉 When performance is more critical than storage efficiency (e.g., analytics DB).
+
+🔹 5. Query Optimization
+
+Techniques:
+
+Use EXPLAIN/EXPLAIN ANALYZE to analyze query plans.
+
+Use indexes properly (on WHERE, JOIN, GROUP BY columns).
+
+Avoid SELECT *, fetch only needed columns.
+
+Optimize joins with proper indexing.
+
+Partition large tables (range/hash partitioning).
+
+Use caching (Redis, application-level).
+
+Avoid N+1 queries (common in ORMs like Hibernate).
+
+Example:
+Instead of:
+
+SELECT * FROM Employee WHERE salary * 12 > 100000;
+
+
+Better:
+
+SELECT * FROM Employee WHERE annual_salary > 100000;
+
+
+👉 Avoids function on indexed column.
+
+🔹 6. Common SQL Interview Questions
+
+What is the difference between WHERE and HAVING?
+
+WHERE → Filters rows before grouping.
+
+HAVING → Filters groups after aggregation.
+
+What is the difference between Primary Key and Unique Key?
+
+Primary → only one per table, not null, unique.
+
+Unique → multiple allowed, nulls allowed.
+
+What are Foreign Keys?
+
+Enforces referential integrity between two tables.
+
+Difference between OLTP vs OLAP DBs?
+
+OLTP → Transactional, normalized, high write.
+
+OLAP → Analytical, denormalized, read-heavy.
+
+How do you prevent SQL Injection?
+
+Use prepared statements, ORM frameworks, and input validation.
+
+Difference between DELETE, TRUNCATE, DROP?
+
+DELETE → Removes rows, can use WHERE, logged.
+
+TRUNCATE → Removes all rows, faster, no WHERE.
+
+DROP → Removes entire table schema.
