@@ -1,0 +1,290 @@
+📘 Java Core Revision
+🔹 OOPs & SOLID Principles
+
+OOPs (Object-Oriented Programming):
+
+Encapsulation → Wrapping data + methods in one unit (class). Access controlled using private, public, protected. Example: private String password; with getters/setters.
+
+Abstraction → Hiding implementation details, showing only functionality. Done with abstract classes and interfaces.
+
+Inheritance → Reusing properties/methods of a parent class. Supports code reuse. Example: class Dog extends Animal.
+
+Polymorphism → “Many forms”.
+
+Compile-time → Method overloading.
+
+Runtime → Method overriding (via inheritance).
+
+SOLID Principles:
+
+Single Responsibility → A class should have only one reason to change. Example: Separate InvoiceCalculator from InvoicePrinter.
+
+Open/Closed → Classes open for extension but closed for modification. Example: Use abstract class + subclasses instead of changing existing code.
+
+Liskov Substitution → Subtypes should replace parent types without breaking functionality. Example: A Square should work in place of a Rectangle.
+
+Interface Segregation → Prefer many small, specific interfaces over one large “fat” interface.
+
+Dependency Inversion → Depend on abstractions, not concrete classes. Use interfaces and DI frameworks (Spring).
+
+🔹 Collections Framework
+
+HashMap:
+
+Stores key-value pairs. Keys must be unique.
+
+Internally uses array of buckets → each bucket is a linked list/tree.
+
+Hashing process:
+
+hashCode() gives hash.
+
+Hash is mapped to bucket index.
+
+Collision handled with chaining (Java 7: linked list, Java 8+: balanced tree for performance).
+
+Performance: O(1) average for get/put, O(n) worst-case if too many collisions.
+
+List vs Set:
+
+List → Ordered, allows duplicates. Implementations: ArrayList (dynamic array), LinkedList (doubly linked).
+
+Set → Unordered, unique elements. Implementations: HashSet (hash-based), TreeSet (sorted, uses Red-Black tree).
+
+Example: Use List when order matters (e.g., history log), Set when uniqueness is required (e.g., usernames).
+
+🔹 Java 8 Features
+
+Streams:
+
+Functional style for collections.
+
+Supports operations: map(), filter(), reduce(), collect().
+
+Example:
+
+List<String> names = Arrays.asList("A", "BB", "CCC");
+List<String> result = names.stream()
+                           .filter(n -> n.length() > 1)
+                           .map(String::toUpperCase)
+                           .toList();
+
+
+Lazy evaluation (ops don’t run until terminal op like collect()).
+
+Lambdas:
+
+Short syntax for anonymous functions.
+
+(a, b) -> a + b replaces Comparator or Runnable.
+
+Optional:
+
+Container for null-safety. Avoids NPE.
+
+Example:
+
+Optional<String> name = Optional.ofNullable(user.getName());
+name.ifPresent(System.out::println);
+
+
+Functional Interfaces:
+
+Interface with exactly one abstract method. Examples: Runnable, Comparator, Function<T,R>.
+
+Used with Lambdas and method references.
+
+🔹 Multithreading
+
+Thread Lifecycle:
+
+New → Created with new Thread().
+
+Runnable → After start(), waiting for CPU.
+
+Running → Actually executing.
+
+Waiting/Timed waiting → wait(), sleep().
+
+Terminated → After completion.
+
+synchronized:
+
+Ensures mutual exclusion (only one thread at a time).
+
+Example:
+
+synchronized void increment() { count++; }
+
+
+volatile:
+
+Guarantees visibility across threads but not atomicity.
+
+Example: volatile boolean running = true; ensures thread sees latest value.
+
+ExecutorService:
+
+Thread pool for managing concurrent tasks.
+
+Example:
+
+ExecutorService executor = Executors.newFixedThreadPool(10);
+executor.submit(() -> System.out.println("Task"));
+executor.shutdown();
+
+🔹 Exception Handling
+
+Custom Exceptions:
+
+Extend Exception (checked) or RuntimeException (unchecked).
+
+Example:
+
+public class InvalidUserException extends RuntimeException {
+    public InvalidUserException(String message) { super(message); }
+}
+
+
+try-catch-finally:
+
+try → risk code.
+
+catch → handle exception.
+
+finally → always executes (good for resource cleanup).
+
+Since Java 7, use try-with-resources for auto-close.
+
+🔹 Memory Management
+
+Stack vs Heap:
+
+Stack → Stores method calls, local variables, primitive types. Faster.
+
+Heap → Stores objects, shared among threads. Managed by GC.
+
+Garbage Collection:
+
+Automatic memory cleanup.
+
+In modern JVMs:
+
+Young Gen (Eden + Survivor spaces) → short-lived objects.
+
+Old Gen → long-lived objects.
+
+GC Algorithms: G1 GC (region-based, low-pause), ZGC (scalable, <10ms pause).
+
+🌱 Spring Boot Revision
+🔹 Core Annotations
+
+@RestController → Combination of @Controller + @ResponseBody. Directly returns JSON/XML.
+
+@Service → Marks business logic layer.
+
+@Repository → Marks DAO layer, also converts DB exceptions into Spring DataAccessException.
+
+@Component → Generic bean, used when others don’t fit.
+
+@Autowired → Injects dependencies.
+
+🔹 Spring Internals
+
+Starters:
+
+Opinionated dependencies packaged by Spring Boot. Example: spring-boot-starter-web.
+
+application.properties / application.yml:
+
+Central config for DB, server port, logging, etc. Supports profiles (application-dev.yml).
+
+Auto-configuration:
+
+Spring Boot scans classpath + conditions (@ConditionalOnClass, etc.) to configure beans automatically.
+
+Example: If spring-boot-starter-data-jpa is present, Hibernate + DataSource beans are auto-configured.
+
+🔹 JPA & Hibernate
+
+Entity Mapping:
+
+@Entity, @Table, @Id, @GeneratedValue.
+
+Relationships: @OneToOne, @OneToMany, @ManyToMany.
+
+@Transactional:
+
+Ensures atomicity. Rolls back on runtime exceptions.
+
+Propagation types control how nested transactions behave.
+
+Lazy vs Eager:
+
+Lazy → Fetch only when needed (proxy). Default for collections.
+
+Eager → Fetch immediately with parent entity. Useful when data is always required.
+
+🔹 Error Handling
+
+@ControllerAdvice → Global exception handler.
+
+@ExceptionHandler → Maps specific exception to response.
+
+Example:
+
+@ControllerAdvice
+public class GlobalHandler {
+    @ExceptionHandler(ResourceNotFound.class)
+    ResponseEntity<?> handle(ResourceNotFound e) {
+        return ResponseEntity.status(404).body(e.getMessage());
+    }
+}
+
+🔹 RESTful APIs
+
+CRUD Example:
+
+@PostMapping("/users") → Create.
+
+@GetMapping("/users/{id}") → Read.
+
+@PutMapping("/users/{id}") → Update.
+
+@DeleteMapping("/users/{id}") → Delete.
+
+DTOs & Validation:
+
+Use @Valid with @NotNull, @Size, etc.
+
+Separate DTOs from Entities for cleaner APIs.
+
+HTTP Status Codes:
+
+200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Internal Server Error.
+
+🔹 Security Basics
+
+JWT Authentication:
+
+User logs in → server validates and issues JWT.
+
+JWT contains claims (roles, expiry).
+
+Client sends token in Authorization: Bearer <token>.
+
+Spring Security filter validates JWT before passing request.
+
+Role-based Authorization:
+
+Use @PreAuthorize("hasRole('ADMIN')") or method-level security.
+
+🔹 Testing
+
+@WebMvcTest → Test controllers with MockMvc.
+
+@DataJpaTest → Test repositories with in-memory DB (H2).
+
+Mockito → Mock dependencies for service tests. Example:
+
+when(userRepo.findById(1L)).thenReturn(Optional.of(user));
