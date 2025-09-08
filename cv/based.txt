@@ -1,0 +1,122 @@
+🔹 Work Experience (Effigo Global)
+
+Q: How did you implement the License Management System with RSA encryption?
+👉 Answer:
+I designed a license system where the server generates a license key signed using RSA private key. At the client-side, validation happens using the public key, ensuring that licenses cannot be tampered with. For added security, I stored keys in AWS Secrets Manager, so no secrets are hardcoded. I also used multi-stage Docker builds for packaging to keep the image lightweight and prevent exposure of build artifacts.
+
+Q: Walk me through the Spring Batch workflow you developed.
+👉 Answer:
+I implemented a chunk-oriented Spring Batch job where data is read, processed, and written in chunks. I configured retries for transient failures and parallel execution using partitioning to improve performance. For error handling, I used SkipPolicy and captured failed records in a separate log for later reprocessing. This ensured high throughput and resilience in large-scale data jobs.
+
+Q: How did you integrate Superset dashboards into enterprise portals?
+👉 Answer:
+I used Superset’s guest token authentication for embedding dashboards. The challenge was handling CSP and X-Frame-Options headers, as browsers were blocking the iframes. I solved this by configuring custom response headers and ensuring proper redirect handling in Nginx/Backend. This allowed secure embedding while maintaining compliance with security policies.
+
+Q: You mentioned role-based access control in Spring Security. How did you design it?
+👉 Answer:
+I defined roles such as Admin, User, and Super Admin, and used @PreAuthorize with SpEL to secure endpoints at method level. The authentication was JWT-based, and I configured a custom UserDetailsService to fetch roles from the database. This ensured fine-grained access control with minimal boilerplate.
+
+Q: Tell me about your Kafka POC with 140K+ records.
+👉 Answer:
+The requirement was to migrate large volumes of data from a server DB to a local DB. I implemented a single producer-consumer setup where the producer published database rows as messages, and the consumer processed them in batches into the target DB. For error handling, I implemented retries and an SMTP notification system that alerted us if a record failed after multiple attempts. This setup was lightweight but scalable for our use case.
+
+Q: How did you optimize PostgreSQL performance with views, functions, and partitioning?
+👉 Answer:
+I created indexed materialized views for frequently accessed queries, wrote stored functions for heavy joins to reduce app-level computation, and applied table partitioning for time-series data. These optimizations reduced query response time by 40–50% in some cases.
+
+Q: Describe a CI/CD pipeline issue you solved.
+👉 Answer:
+In Jenkins, multi-environment job management was failing due to inconsistent Docker images. I fixed this by implementing Docker multi-stage builds and tagging images based on environment (dev, QA, prod). I also integrated Keycloak authentication for secure access to the Jenkins dashboard. This improved both reliability and security of deployments.
+
+🔹 Skills & Tools
+
+Q: Difference between JPA, Hibernate, and Spring Data JPA?
+👉 Answer:
+
+Hibernate → ORM framework (implementation).
+
+JPA → Specification defining ORM APIs.
+
+Spring Data JPA → Higher-level abstraction that reduces boilerplate with repository interfaces, built on top of JPA/Hibernate.
+
+Q: How do Docker multi-stage builds improve security?
+👉 Answer:
+They allow us to separate the build environment from the runtime environment. The final image contains only the minimal runtime dependencies, reducing size and attack surface, and ensuring sensitive build artifacts are not leaked.
+
+Q: AWS Lambda vs EC2 for microservices?
+👉 Answer:
+
+EC2 → Full control, persistent environment, better for long-running services.
+
+Lambda → Serverless, pay-per-use, scales instantly, better for event-driven or short-lived tasks.
+In my project, I used Lambda for scheduled tasks like PDF generation and S3 uploads because of its cost-effectiveness and simplicity.
+
+Q: Kafka delivery semantics?
+👉 Answer:
+
+At most once → Messages may be lost, but never redelivered.
+
+At least once → Messages are retried, but may be duplicated.
+
+Exactly once → Ensures no loss and no duplication, supported with Kafka transactions.
+In my POC, I implemented at least once, since retries were acceptable for our use case.
+
+Q: How do you debug performance issues in Spring Boot?
+👉 Answer:
+I usually start with thread dumps and heap dumps, analyze GC logs for memory leaks, and use tools like VisualVM or JProfiler. I also leverage Spring Actuator metrics and database slow query logs to pinpoint bottlenecks.
+
+🔹 Projects
+
+Q: How did you design WebSocket scalability in CampusVibe?
+👉 Answer:
+I used a publish-subscribe model where each chat channel had a dedicated topic. WebSocket connections were managed using Spring WebSocket + STOMP. Scaling was handled by deploying multiple backend instances behind a load balancer, with a shared message broker to synchronize messages.
+
+Q: Why Google OAuth in CampusVibe?
+👉 Answer:
+Since the target users were university students, Google OAuth simplified onboarding, removed the need to manage passwords, and provided secure authentication with refresh token support.
+
+Q: Why AWS Lambda for document automation scheduling?
+👉 Answer:
+I chose Lambda because the tasks were periodic and lightweight. Running EC2 24/7 would be costlier. Lambda, combined with S3 triggers and CloudWatch events, was more cost-efficient and scalable.
+
+Q: How did you ensure data consistency between PostgreSQL and S3?
+👉 Answer:
+I wrapped DB transactions and S3 operations in the same service layer. If S3 upload failed, the DB transaction was rolled back. For resilience, I also logged failed uploads for retry.
+
+🔹 Certifications & Education
+
+Q: Difference between AWS, Azure, and OCI?
+👉 Answer:
+
+AWS → Largest ecosystem, strong serverless and managed DB services.
+
+Azure → Best enterprise integration (AD, DevOps, .NET stack).
+
+OCI → Strong cost-performance for compute-heavy workloads.
+In practice, I’ve mostly used AWS for Lambda + S3 automation, Azure DevOps for CI/CD, and OCI knowledge is more foundational from certification.
+
+Q: How does IAM differ across AWS and Azure?
+👉 Answer:
+
+AWS IAM is role and policy-based.
+
+Azure uses role-based access control (RBAC) integrated with Azure AD.
+Both provide fine-grained access, but Azure RBAC is more tightly coupled with enterprise identity management.
+
+Q: How has Azure Fundamentals certification helped you?
+👉 Answer:
+It gave me a strong foundation in cloud concepts like shared responsibility model, pricing, and RBAC. This helped when I worked with Azure DevOps pipelines and in discussions with teams choosing between AWS and Azure for deployments.
+
+Q: DSA – How do you solve algorithmic problems?
+👉 Answer:
+I break problems into smaller subproblems, identify suitable data structures, and optimize step by step. I use techniques like sliding window, two pointers, or dynamic programming where applicable. For example, on LeetCode I solved array and graph problems by progressively optimizing from brute force to O(n) or O(n log n) solutions.
+
+🔹 Behavioral (Soft Skills)
+
+Q: Tell me about a time you led a team under pressure.
+👉 Answer:
+As head of my robotics club, I managed a 20-member team for ABU-Robocon. During the final week before submission, our robot had mechanical faults. I quickly reassigned tasks, coordinated parallel work on hardware and software, and kept morale high. We managed to deliver a working prototype on time.
+
+Q: How did you resolve conflict in a project team?
+👉 Answer:
+During my internship, we had disagreements about DB schema design. Instead of pushing my opinion, I facilitated a quick meeting where each person presented pros and cons. We agreed on a hybrid design that balanced performance and flexibility. This improved collaboration and avoided delays.
