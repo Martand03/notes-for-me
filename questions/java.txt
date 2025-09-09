@@ -1,0 +1,167 @@
+This will include:
+
+Core Java (OOPs, Collections, Memory, Exceptions, GC, etc.)
+
+Java 8 Features (Streams, Lambdas, Optional, Functional Interfaces, etc.)
+
+Multithreading & Concurrency (Thread lifecycle, Executors, Locks, Synchronization, Volatile, Atomic, ForkJoinPool, CompletableFuture, etc.)
+
+📘 Java Interview Questions (Complete Guide)
+🔹 A. Core Java (Standard Concepts)
+Basics & OOP
+
+What are the four main principles of OOP in Java? Give real-world examples.
+
+Difference between abstract class and interface.
+
+Why does Java not support multiple inheritance? How does interface default methods solve the diamond problem?
+
+Explain the equals() and hashCode() contract. Why is it important?
+
+Difference between String, StringBuilder, and StringBuffer.
+
+Collections
+
+Difference between List, Set, and Map. When would you use each?
+
+Explain the internal working of HashMap. How does it handle collisions?
+
+What is the difference between HashMap and ConcurrentHashMap?
+
+Why are HashMap keys immutable?
+
+What is fail-fast vs fail-safe iterator?
+
+Memory & GC
+
+Difference between Stack and Heap memory in Java.
+
+Explain Garbage Collection process in Java (minor GC, major GC, G1 GC, ZGC).
+
+What is a memory leak in Java? How do you detect and fix it?
+
+How does the finalize() method work? Why is it deprecated?
+
+How do strong, weak, soft, and phantom references differ?
+
+Exceptions
+
+Difference between checked and unchecked exceptions.
+
+When would you create a custom exception?
+
+What is try-with-resources? How does it work internally?
+
+Explain throw vs throws.
+
+Difference between Error and Exception.
+
+🔹 B. Java 8 Features (Streams, Lambdas, Optional, Functional Interfaces)
+Lambdas & Functional Interfaces
+
+What is a lambda expression? Give examples of its syntax.
+
+What is a functional interface? Examples of built-in functional interfaces.
+
+Difference between anonymous class and lambda expression.
+
+What are method references in Java 8? Give examples.
+
+Why were lambdas introduced in Java?
+
+Streams API
+
+What is the difference between Streams and Collections?
+
+Explain intermediate vs terminal operations in Streams.
+
+Difference between map() and flatMap().
+
+How does parallel stream work? What are its pros/cons?
+
+How to handle exceptions inside a Stream pipeline?
+
+Optional
+
+Why was Optional introduced in Java 8?
+
+Difference between Optional.of(), Optional.ofNullable(), and Optional.empty().
+
+How does Optional help avoid NullPointerException?
+
+Best practices when using Optional.
+
+Why should we avoid using Optional.get() directly?
+
+🔹 C. Multithreading & Concurrency
+Thread Basics
+
+What is the lifecycle of a thread in Java?
+
+Difference between extending Thread and implementing Runnable.
+
+How does join() method work?
+
+Difference between sleep() and wait().
+
+What is a daemon thread?
+
+Synchronization
+
+Difference between synchronized method and synchronized block.
+
+What are intrinsic locks (monitor locks) in Java?
+
+How does volatile differ from synchronized?
+
+What is reentrant locking? How does Java handle it?
+
+Difference between notify() and notifyAll().
+
+Concurrency Utilities
+
+What is ExecutorService? Why use it over manually creating threads?
+
+Difference between submit() and execute() in ExecutorService.
+
+Explain Future vs CompletableFuture.
+
+What is ForkJoinPool? Where is it used?
+
+Difference between CountDownLatch and CyclicBarrier.
+
+Atomic & Locks
+
+How do Atomic classes (like AtomicInteger) work internally?
+
+Difference between Lock and synchronized.
+
+What is ReadWriteLock? When to use it?
+
+What is optimistic vs pessimistic locking?
+
+How does CAS (Compare-And-Swap) work?
+
+Advanced Multithreading
+
+Explain producer-consumer problem. How would you implement it?
+
+What is deadlock? How to detect and prevent it?
+
+Difference between livelock and starvation.
+
+What are thread-safe collections in Java? Examples.
+
+How does Java Memory Model (JMM) ensure visibility and ordering?
+
+🔹 D. Scenario-Based Questions
+
+How would you design a thread-safe Singleton class in Java?
+
+You have 10 million records to process — would you use Streams, Parallel Streams, or ExecutorService? Why?
+
+How would you handle retry logic in a multithreaded environment?
+
+How do you debug high CPU usage due to threads in Java?
+
+How would you implement a simple rate limiter in Java?
