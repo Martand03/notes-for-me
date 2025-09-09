@@ -1,0 +1,220 @@
+🛡️ Interview Questions for Highlighted Resume Topics
+🔹 1. RSA Encryption (Security & Cryptography)
+
+What is RSA encryption? How does it work?
+
+Difference between symmetric and asymmetric encryption.
+
+What are public and private keys in RSA?
+
+How does RSA key exchange work?
+
+Why is RSA computationally expensive compared to AES?
+
+What is padding in RSA (OAEP, PKCS#1)?
+
+How do you use RSA in securing HTTPS (TLS handshake)?
+
+How does digital signing work with RSA?
+
+Difference between RSA and ECC (Elliptic Curve Cryptography).
+
+How would you integrate RSA encryption into a Spring Boot application?
+
+🔹 2. AWS Secrets Manager
+
+What is AWS Secrets Manager? Why not just use environment variables?
+
+Difference between AWS Secrets Manager and AWS Parameter Store.
+
+How do you rotate secrets automatically in AWS Secrets Manager?
+
+How do you integrate Secrets Manager with Spring Boot?
+
+How does IAM control access to AWS Secrets Manager?
+
+How are secrets encrypted at rest in AWS?
+
+How do you audit and monitor access to secrets?
+
+Best practices for storing DB credentials in AWS Secrets Manager.
+
+How do you handle multi-account secret sharing?
+
+Cost model of AWS Secrets Manager.
+
+🔹 3. Apache Superset (Data Visualization / BI)
+
+What is Apache Superset?
+
+Difference between Superset and Tableau/Power BI.
+
+How does Superset connect to databases?
+
+What are Superset dashboards and slices?
+
+How do you secure Superset with authentication (OAuth, LDAP)?
+
+How do you embed Superset dashboards in a web app?
+
+What is the role of SQL Lab in Superset?
+
+How do you set role-based access in Superset?
+
+How do you configure caching in Superset for performance?
+
+How do you integrate Superset with Kubernetes/Docker?
+
+🔹 4. CSP & X-Frame-Options Headers (Web Security)
+
+What is Content Security Policy (CSP)?
+
+How does CSP help prevent XSS attacks?
+
+What is the difference between CSP and X-Frame-Options?
+
+How does X-Frame-Options protect against clickjacking?
+
+What are CSP directives (script-src, img-src, etc.)?
+
+Difference between sameorigin and deny in X-Frame-Options.
+
+How do you implement CSP in Spring Boot (Content-Security-Policy header)?
+
+What issues might CSP cause for legitimate scripts (e.g., inline JS)?
+
+How do you test and validate CSP headers?
+
+What’s the difference between CSP Level 2 and Level 3?
+
+🔹 5. Spring Batch
+
+What is Spring Batch?
+
+Core components of Spring Batch (Job, Step, ItemReader, ItemProcessor, ItemWriter).
+
+Difference between chunk-oriented processing and tasklet in Spring Batch.
+
+How do you configure job parameters in Spring Batch?
+
+How do you restart failed jobs in Spring Batch?
+
+How does Spring Batch handle transactions and rollbacks?
+
+What is job repository in Spring Batch?
+
+How do you implement parallel processing in Spring Batch?
+
+Difference between skip and retry in Spring Batch.
+
+Real-world use case: processing large CSV/JSON files with Spring Batch.
+
+🔹 6. Spring Security
+
+What is Spring Security?
+
+Difference between authentication and authorization.
+
+What are security filters in Spring Security?
+
+How does Spring Security integrate with JWT?
+
+How does Spring Security handle CSRF protection?
+
+What are method-level security annotations (@Secured, @PreAuthorize)?
+
+How do you configure custom authentication providers?
+
+What is password encoding (BCryptPasswordEncoder)?
+
+How do you secure REST APIs in Spring Boot with Spring Security?
+
+How do you integrate OAuth2 with Spring Security?
+
+🔹 7. SMTP (Email Sending)
+
+What is SMTP? How does it work?
+
+Difference between SMTP, IMAP, and POP3.
+
+How do you configure Spring Boot to send emails using SMTP?
+
+How do you secure SMTP (TLS/SSL)?
+
+How do you handle email retries in case of SMTP failure?
+
+What is an SMTP relay?
+
+What are SPF, DKIM, and DMARC in email security?
+
+How do you test SMTP connections from the command line (telnet, openssl)?
+
+How do you send attachments using SMTP in Java?
+
+What’s the role of transactional vs bulk emails in SMTP systems?
+
+🔹 8. WebSockets
+
+What is a WebSocket? How does it differ from HTTP?
+
+Difference between WebSockets and SSE (Server-Sent Events).
+
+How do you implement WebSockets in Spring Boot (@EnableWebSocket)?
+
+How does STOMP protocol enhance WebSockets?
+
+How do you secure WebSockets with Spring Security?
+
+What is WebSocket handshake?
+
+Difference between long-polling and WebSockets.
+
+How do you handle scaling WebSockets across multiple servers (Redis pub/sub)?
+
+How do you handle WebSocket reconnections on client side?
+
+Real-world use case: chat application with WebSockets.
+
+🔹 9. OAuth (Authentication & Authorization)
+
+What is OAuth 2.0?
+
+Difference between OAuth 2.0 and OpenID Connect.
+
+What are OAuth 2.0 grant types (Authorization Code, Implicit, Client Credentials, Password)?
+
+How does the Authorization Code flow work?
+
+What is a refresh token in OAuth?
+
+How does PKCE enhance OAuth security?
+
+Difference between access token and ID token.
+
+How do you integrate OAuth2 with Spring Boot?
+
+What are scopes in OAuth?
+
+How do you secure microservices using OAuth2 and JWT?
+
+🔹 10. S3 Uploads using AWS Lambda
+
+How do you upload files to S3 using Lambda?
+
+How do you trigger a Lambda when a file is uploaded to S3?
+
+How do you generate pre-signed S3 URLs for upload/download?
+
+What are S3 multipart uploads?
+
+How do you handle large file uploads using Lambda + S3?
+
+How do you secure S3 uploads (IAM policies, bucket policies)?
+
+How do you optimize Lambda memory/timeout for file uploads?
+
+How do you validate file types and sizes before uploading?
+
+How would you integrate S3 uploads with API Gateway + Lambda?
+
+Real-world scenario: Upload a CSV → Lambda parses → store in RDS/Redshift.
