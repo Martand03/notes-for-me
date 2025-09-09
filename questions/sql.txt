@@ -1,0 +1,120 @@
+🟡 SQL Interview Questions (Complete Guide)
+🔹 A. SQL Basics
+
+What is the difference between SQL and NoSQL databases?
+
+What are DDL, DML, DCL, and TCL statements? Give examples.
+
+Difference between DELETE, TRUNCATE, and DROP.
+
+What are constraints in SQL? Explain PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, and DEFAULT.
+
+What are Views? Advantages and disadvantages of using Views.
+
+🔹 B. Joins
+
+Difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN.
+
+What is a SELF JOIN? Give an example.
+
+What is CROSS JOIN (Cartesian product)? When would you use it?
+
+Can you write a query to find employees who don’t belong to any department?
+
+Explain the difference between UNION and UNION ALL.
+
+🔹 C. Indexing
+
+What is an index in SQL? Why do we need it?
+
+Difference between clustered and non-clustered indexes.
+
+What is a composite index? When should you use one?
+
+How do indexes impact INSERT/UPDATE performance?
+
+What is a covering index?
+
+🔹 D. Transactions & ACID
+
+What is a transaction in SQL?
+
+Explain ACID properties with examples.
+
+What are isolation levels? (Read Uncommitted, Read Committed, Repeatable Read, Serializable).
+
+Explain dirty read, non-repeatable read, phantom read with examples.
+
+How does COMMIT and ROLLBACK work?
+
+🔹 E. Normalization & Denormalization
+
+What is normalization? Why is it important?
+
+Explain 1NF, 2NF, 3NF, and BCNF with examples.
+
+What is denormalization? When would you use it?
+
+Difference between star schema and snowflake schema in databases.
+
+Trade-offs of normalization vs denormalization.
+
+🔹 F. Query Optimization
+
+How do you analyze and optimize a slow query?
+
+What is EXPLAIN or EXPLAIN PLAN? How do you use it?
+
+Why should you avoid SELECT * in queries?
+
+How does indexing help optimize queries?
+
+How would you improve performance of a query with many joins?
+
+🔹 G. Stored Procedures, Functions & Triggers
+
+Difference between stored procedure and function.
+
+What are triggers? When would you use them?
+
+Difference between BEFORE and AFTER triggers.
+
+What is a cursor? When is it required?
+
+Advantages and disadvantages of stored procedures.
+
+🔹 H. Advanced SQL
+
+What are window functions? Examples (ROW_NUMBER, RANK, DENSE_RANK).
+
+What are Common Table Expressions (CTEs)? Difference between CTE and subquery.
+
+Difference between correlated and non-correlated subqueries.
+
+What is a materialized view? Difference from a normal view.
+
+What are database partitions and sharding?
+
+🔹 I. DB Design & Scenarios
+
+Design a schema for an e-commerce platform (Products, Orders, Users).
+
+How would you design a database for a ride-sharing app like Uber?
+
+How would you prevent duplicate entries in a table?
+
+How do you implement many-to-many relationships in SQL?
+
+How would you handle soft deletes in a database?
+
+🔹 J. Commonly Asked Tricky Questions
+
+Can a table have multiple primary keys?
+
+Can a foreign key reference a non-primary key column?
+
+What is the difference between HAVING and WHERE?
+
+How do you find the 2nd highest salary from the Employee table? (multiple solutions).
+
+How would you detect and fix a deadlock in a database?
