@@ -1,0 +1,122 @@
+🟡 PostgreSQL | MySQL | MongoDB – Interview Questions
+🔹 A. SQL Fundamentals (PostgreSQL & MySQL)
+
+Difference between PostgreSQL and MySQL.
+
+What are ACID properties in databases?
+
+Difference between OLTP and OLAP databases.
+
+What is normalization? Explain 1NF, 2NF, 3NF, BCNF.
+
+What is denormalization and when would you use it?
+
+Difference between primary key, foreign key, and unique key.
+
+Difference between clustered index and non-clustered index.
+
+What are composite keys?
+
+What are views in SQL? Difference between materialized and normal views.
+
+What are stored procedures and triggers?
+
+🔹 B. PostgreSQL
+
+What are PostgreSQL data types?
+
+What are PostgreSQL schemas?
+
+Difference between PostgreSQL and Oracle/MySQL in terms of features.
+
+What is JSONB in PostgreSQL? Difference between JSON and JSONB.
+
+How does PostgreSQL handle concurrency (MVCC)?
+
+Difference between SERIAL and BIGSERIAL.
+
+How does PostgreSQL handle indexing (B-Tree, Hash, GIN, GiST, BRIN)?
+
+What are CTEs (Common Table Expressions) in PostgreSQL?
+
+How do you implement full-text search in PostgreSQL?
+
+How do you partition tables in PostgreSQL?
+
+🔹 C. MySQL
+
+Difference between MySQL storage engines (InnoDB vs MyISAM).
+
+How does MySQL handle transactions?
+
+What are isolation levels in MySQL? (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE).
+
+How does MySQL replication work (master-slave, master-master)?
+
+What is MySQL indexing strategy?
+
+What is query optimization in MySQL?
+
+Difference between CHAR and VARCHAR.
+
+What is the difference between DELETE, TRUNCATE, and DROP?
+
+How do you implement pagination in MySQL?
+
+What is a prepared statement in MySQL?
+
+🔹 D. MongoDB (NoSQL)
+
+What is MongoDB? How is it different from SQL databases?
+
+Difference between MongoDB, Cassandra, and Redis.
+
+What are documents and collections in MongoDB?
+
+What is the difference between embedded documents and references in MongoDB?
+
+Difference between MongoDB and PostgreSQL JSONB.
+
+What are indexes in MongoDB?
+
+What is a capped collection in MongoDB?
+
+How does MongoDB handle replication (Replica Sets)?
+
+What is sharding in MongoDB?
+
+What are aggregation pipelines in MongoDB?
+
+🔹 E. Transactions & Concurrency
+
+How do PostgreSQL and MySQL implement transactions differently?
+
+Difference between optimistic and pessimistic locking.
+
+How does MongoDB handle transactions (multi-document transactions)?
+
+What is deadlock? How do you detect and resolve it?
+
+How do you implement database migrations safely?
+
+🔹 F. Advanced & Scenario-Based
+
+How would you design a schema for an e-commerce system (orders, customers, products)?
+
+How do you optimize a slow SQL query?
+
+How would you implement auditing in PostgreSQL/MySQL?
+
+How do you store hierarchical data in SQL vs MongoDB?
+
+If you need high read scalability, would you choose PostgreSQL, MySQL, or MongoDB? Why?
+
+How do you ensure data consistency in a distributed database system?
+
+How would you design a real-time analytics dashboard (SQL vs NoSQL trade-off)?
+
+How do you migrate data from MySQL/PostgreSQL to MongoDB?
+
+How do you back up and restore large PostgreSQL/MySQL databases?
+
+When would you prefer MongoDB over PostgreSQL/MySQL in microservices?
