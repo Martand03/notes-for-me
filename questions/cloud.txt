@@ -1,0 +1,144 @@
+☁️ AWS (EC2, S3, Lambda) & Azure Interview Questions (Complete Guide)
+🔹 A. Cloud Fundamentals
+
+What is cloud computing? Explain IaaS, PaaS, SaaS with examples.
+
+Difference between AWS and Azure in terms of services and pricing.
+
+What is the shared responsibility model in cloud computing?
+
+What are availability zones and regions in AWS/Azure?
+
+How do you ensure high availability and disaster recovery in cloud deployments?
+
+🔹 B. AWS EC2 (Elastic Compute Cloud)
+
+What is Amazon EC2?
+
+Difference between On-demand, Reserved, and Spot Instances.
+
+What are security groups and how do they work?
+
+What is the difference between security groups and NACLs (Network ACLs)?
+
+What are EC2 instance types (t2.micro, m5.large, etc.)?
+
+What is an AMI (Amazon Machine Image)?
+
+How do you scale EC2 instances automatically? (Auto Scaling Groups).
+
+What is Elastic IP? When would you use it?
+
+What is the difference between Elastic Load Balancer (ELB) and Auto Scaling?
+
+How do you connect EC2 to a private network (VPC, subnets)?
+
+🔹 C. AWS S3 (Simple Storage Service)
+
+What is Amazon S3?
+
+What are storage classes in S3 (Standard, Infrequent Access, Glacier)?
+
+Difference between S3 Standard and S3 Glacier.
+
+What is S3 versioning?
+
+What is an S3 bucket policy? How does it differ from IAM policies?
+
+How do you secure S3 data (encryption, access control)?
+
+What is S3 lifecycle management?
+
+Difference between S3 and EBS.
+
+What is S3 Transfer Acceleration?
+
+How do you make S3 highly available and durable?
+
+🔹 D. AWS Lambda (Serverless)
+
+What is AWS Lambda?
+
+Difference between Lambda and EC2.
+
+What are the limits of AWS Lambda (execution time, memory)?
+
+What are Lambda triggers? Give examples (S3, DynamoDB, API Gateway).
+
+How does Lambda integrate with API Gateway?
+
+What is the difference between synchronous and asynchronous Lambda invocation?
+
+How do you handle errors and retries in Lambda?
+
+How do you manage environment variables in Lambda?
+
+What is cold start in Lambda? How do you reduce it?
+
+How does Lambda pricing work?
+
+🔹 E. Azure Core Services
+
+What is Azure Virtual Machine? How does it compare with AWS EC2?
+
+What is Azure Blob Storage? Compare with AWS S3.
+
+What is Azure Functions? Compare with AWS Lambda.
+
+What is Azure Resource Group?
+
+What is Azure Virtual Network (VNet)? Compare with AWS VPC.
+
+What are Azure Availability Zones and Regions?
+
+What is Azure Active Directory (AD)? How does it differ from AWS IAM?
+
+What is Azure App Service?
+
+How do you scale applications in Azure (manual vs autoscale)?
+
+What is the difference between Azure SQL Database and AWS RDS?
+
+🔹 F. Security & IAM
+
+What is AWS IAM?
+
+Difference between IAM roles, groups, and policies.
+
+What are inline vs managed IAM policies?
+
+What is Azure Role-Based Access Control (RBAC)?
+
+Difference between Azure AD roles and IAM roles.
+
+How do you manage cross-account access in AWS vs Azure?
+
+How do you secure secrets in AWS and Azure? (AWS Secrets Manager, Azure Key Vault).
+
+What is MFA (Multi-Factor Authentication) in cloud security?
+
+How do you enforce least privilege principle in AWS/Azure?
+
+What is Identity Federation in Azure/AWS?
+
+🔹 G. Advanced & Scenario-Based
+
+How do you design a fault-tolerant system using EC2 and S3?
+
+How would you process large files uploaded to S3? (Hint: Lambda + S3 events).
+
+How do you design a serverless API using AWS Lambda?
+
+How would you implement a CI/CD pipeline in AWS (CodePipeline) vs Azure DevOps?
+
+How would you migrate an on-premise application to AWS/Azure?
+
+How do you implement hybrid cloud solutions (part on-prem, part cloud)?
+
+How do you secure communication between microservices running in EC2 and Azure VMs?
+
+How would you optimize cost for an application running 24/7 on AWS EC2?
+
+How would you handle scaling for a video streaming app (S3, CloudFront, EC2/Azure CDN)?
+
+How do you ensure compliance (GDPR, HIPAA) in AWS/Azure deployments?
