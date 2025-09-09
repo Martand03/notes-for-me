@@ -1,0 +1,162 @@
+🌱 Spring Boot Interview Questions (Complete Guide)
+🔹 A. Core Spring & Annotations
+
+Difference between Spring Framework and Spring Boot.
+
+What is the role of @SpringBootApplication?
+
+Difference between @Component, @Service, @Repository, and @Controller.
+
+How does @Autowired work internally? Constructor vs Setter vs Field injection.
+
+What is the difference between @Bean and @Component?
+
+What is the difference between @Configuration and @ComponentScan?
+
+Explain @Value and @ConfigurationProperties for property injection.
+
+Difference between @Lazy and @DependsOn annotations.
+
+What is the role of @ConditionalOnProperty in auto-configuration?
+
+Difference between @Primary and @Qualifier.
+
+🔹 B. Spring Bean Lifecycle
+
+Explain the Spring Bean lifecycle with steps.
+
+What is the difference between @PostConstruct and InitializingBean?
+
+What is the role of @PreDestroy?
+
+How does Spring handle bean scope (singleton, prototype, request, session)?
+
+How does dependency injection work internally in Spring?
+
+🔹 C. Auto-Configuration & Internals
+
+How does Spring Boot auto-configuration work internally?
+
+What is the role of spring.factories in Spring Boot?
+
+Difference between application.properties and application.yml.
+
+What are Spring Boot starters? Why are they useful?
+
+How does Spring Boot manage profiles (application-dev.yml, application-prod.yml)?
+
+🔹 D. AOP (Aspect-Oriented Programming)
+
+What is AOP in Spring?
+
+Explain key terms: Aspect, Advice, Pointcut, JoinPoint.
+
+Difference between @Before, @AfterReturning, @AfterThrowing, and @Around.
+
+How does Spring AOP work internally (JDK dynamic proxies vs CGLIB)?
+
+Real-world use cases of AOP (logging, transaction management, security).
+
+🔹 E. REST APIs with Spring Boot
+
+Difference between @Controller and @RestController.
+
+How do you create REST APIs in Spring Boot?
+
+How do you handle request validation (@Valid, @NotNull, @Size)?
+
+How do you send proper HTTP status codes in Spring Boot?
+
+How do you upload/download files in Spring Boot REST APIs?
+
+Difference between GET, POST, PUT, DELETE, PATCH in REST.
+
+How do you version REST APIs in Spring Boot?
+
+🔹 F. Exception Handling
+
+How do you implement global exception handling in Spring Boot?
+
+Difference between @ControllerAdvice and @RestControllerAdvice.
+
+How do you return a custom error response (JSON with timestamp, message, status)?
+
+How do you handle validation errors in Spring Boot?
+
+Best practices for exception handling in REST APIs.
+
+🔹 G. Spring Data JPA & Hibernate
+
+Difference between CrudRepository, JpaRepository, and PagingAndSortingRepository.
+
+How do you handle pagination and sorting in Spring Data JPA?
+
+How do you write custom queries with @Query?
+
+Difference between JPQL and Native Query.
+
+Explain lazy vs eager loading in Hibernate.
+
+What is the N+1 select problem in JPA? How do you fix it?
+
+What is the difference between fetch = FetchType.LAZY and fetch = FetchType.EAGER?
+
+How does caching work in Hibernate (1st-level and 2nd-level cache)?
+
+🔹 H. Transactions & @Transactional
+
+What is the role of @Transactional?
+
+Difference between checked and unchecked exceptions in transactions.
+
+Difference between propagation types: REQUIRED, REQUIRES_NEW, MANDATORY, NESTED.
+
+What is isolation level? Explain READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE.
+
+How does Spring handle rollback in transactions?
+
+🔹 I. Security
+
+Difference between Authentication and Authorization.
+
+How do you implement JWT authentication in Spring Boot?
+
+Difference between stateful and stateless authentication.
+
+How does Spring Security filter chain work?
+
+What is CSRF protection? How does Spring Security handle it?
+
+How do you implement role-based access control in Spring Security?
+
+Difference between @Secured, @RolesAllowed, and @PreAuthorize.
+
+🔹 J. Testing
+
+Difference between unit testing and integration testing in Spring Boot.
+
+How does @WebMvcTest work?
+
+How does @DataJpaTest work?
+
+Difference between @SpringBootTest and slicing annotations.
+
+How do you mock dependencies in Spring Boot tests?
+
+How do you test REST APIs using MockMvc?
+
+Best practices for testing with JUnit + Mockito + Spring Boot.
+
+🔹 K. Advanced Features
+
+How does Spring Boot support caching? (@EnableCaching, @Cacheable).
+
+How does Spring Boot handle scheduling (@Scheduled)?
+
+What is Actuator in Spring Boot? What metrics does it provide?
+
+How do you enable and use health checks in Spring Boot Actuator?
+
+How do you configure externalized configuration with Spring Cloud Config?
+
+How does Spring Boot integrate with Kafka or RabbitMQ?
