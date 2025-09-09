@@ -1,0 +1,158 @@
+⚛️ ReactJS Interview Questions (Complete Guide)
+🔹 A. React Basics
+
+What is React? How is it different from Angular and Vue?
+
+What are the key features of React?
+
+What is the Virtual DOM? How does it work?
+
+What is JSX? Why is it used?
+
+Difference between functional and class components.
+
+What are React props? Difference between props and state.
+
+What is the difference between controlled and uncontrolled components?
+
+What is React reconciliation?
+
+Why do we need keys in lists?
+
+What is the difference between React and React Native?
+
+🔹 B. React Lifecycle
+
+What are React component lifecycle phases?
+
+Difference between mounting, updating, and unmounting.
+
+Explain componentDidMount, componentDidUpdate, and componentWillUnmount.
+
+How are lifecycle methods replaced with hooks in functional components?
+
+What is the difference between useEffect with [] and without []?
+
+🔹 C. React Hooks
+
+What are React Hooks? Why were they introduced?
+
+Difference between useState and useReducer.
+
+What is the difference between useEffect and useLayoutEffect?
+
+What is useRef? Give use cases.
+
+How does useMemo help with performance optimization?
+
+What is the difference between useCallback and useMemo?
+
+Can hooks be used inside loops or conditionals? Why not?
+
+What are custom hooks? Example use case.
+
+Difference between useContext and prop drilling.
+
+How does React handle hook dependency arrays?
+
+🔹 D. State Management
+
+What are the different ways to manage state in React?
+
+What is prop drilling? How to avoid it?
+
+What is Context API?
+
+Difference between Redux and Context API.
+
+What are the main concepts of Redux (actions, reducers, store)?
+
+What are middleware in Redux (e.g., redux-thunk, redux-saga)?
+
+Difference between Redux and MobX.
+
+When would you choose Context API over Redux?
+
+What is server-side state management? Example with React Query.
+
+What is optimistic UI update in state management?
+
+🔹 E. Performance Optimization
+
+How does React prevent unnecessary re-renders?
+
+Difference between React.memo and useMemo.
+
+How does reconciliation improve performance in React?
+
+How do you optimize performance in large React applications?
+
+Difference between lazy loading and code splitting.
+
+How does React handle diffing of lists?
+
+What is tree-shaking in React builds?
+
+Difference between client-side rendering (CSR), server-side rendering (SSR), and static site generation (SSG).
+
+How does Next.js improve React app performance?
+
+What is hydration in React?
+
+🔹 F. Forms & Events
+
+Difference between controlled and uncontrolled inputs.
+
+How do you handle multiple input fields in forms?
+
+What is event delegation in React?
+
+How do you prevent default form submission in React?
+
+How do you implement debouncing/throttling in input fields?
+
+🔹 G. Error Handling & Testing
+
+How does React handle errors? What are error boundaries?
+
+How do you create an error boundary component?
+
+How do you test React components? (Jest, React Testing Library).
+
+What is snapshot testing in React?
+
+How do you mock API calls in React tests?
+
+🔹 H. Advanced React
+
+What are Higher Order Components (HOCs)?
+
+Difference between HOCs and render props.
+
+What are portals in React?
+
+What is code splitting in React? How do you implement it?
+
+What are Suspense and Concurrent Mode in React?
+
+Difference between client-side routing and server-side routing.
+
+How does React Router work internally?
+
+What are fragments in React?
+
+What is hydration? How does React use it in SSR?
+
+Difference between CSR, SSR, and SSG in React apps.
+
+🔹 I. Real-World & Scenario-Based
+
+How do you handle API calls in React?
+
+How do you cancel an API request in React?
+
+How do you manage authentication in React apps?
+
+How do you secure routes in React Router?
+
+How would you design a chat app using React and WebSockets?
