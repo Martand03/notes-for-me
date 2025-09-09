@@ -1,0 +1,108 @@
+🔧 Jenkins & Git Interview Questions (Complete Guide)
+🔹 A. Git (Version Control)
+
+What is Git? How is it different from SVN?
+
+Difference between Git and GitHub/GitLab/Bitbucket.
+
+What is the difference between a commit, branch, and tag?
+
+What is the difference between git pull and git fetch?
+
+Difference between git merge and git rebase.
+
+What is a detached HEAD state in Git?
+
+What are Git hooks?
+
+What is the difference between git stash and git reset?
+
+Difference between git reset --soft, --mixed, and --hard.
+
+What is the difference between git cherry-pick and git revert?
+
+How do you resolve a merge conflict in Git?
+
+What is .gitignore and why is it important?
+
+Difference between fast-forward merge and recursive merge.
+
+What is Git submodule?
+
+What is Git reflog and how do you use it to recover lost commits?
+
+🔹 B. Jenkins (CI/CD)
+
+What is Jenkins? Why is it used?
+
+Difference between Jenkins and other CI/CD tools (GitLab CI, CircleCI, Azure DevOps).
+
+What is the difference between Jenkins freestyle and pipeline jobs?
+
+What are Jenkins agents (nodes)?
+
+What is the difference between master and agent nodes in Jenkins?
+
+How do you trigger Jenkins builds automatically? (SCM polling, Webhooks).
+
+What are Jenkins plugins? Give examples.
+
+What is Jenkinsfile? Why is it important?
+
+Difference between Declarative and Scripted pipelines.
+
+What are stages and steps in Jenkins pipelines?
+
+How do you pass parameters to a Jenkins job?
+
+What is Blue Ocean in Jenkins?
+
+How do you handle credentials in Jenkins securely?
+
+How do you integrate Jenkins with GitHub/GitLab?
+
+What is the difference between pipeline and multibranch pipeline in Jenkins?
+
+🔹 C. Jenkins Advanced
+
+What is the difference between continuous integration, continuous delivery, and continuous deployment?
+
+How do you run parallel stages in Jenkins pipeline?
+
+What is Jenkins shared library?
+
+How do you achieve build artifact management in Jenkins?
+
+How do you implement rollback in Jenkins pipelines?
+
+How do you handle approvals (manual intervention) in pipelines?
+
+How do you scale Jenkins for large workloads?
+
+How do you configure Jenkins for high availability?
+
+How do you monitor Jenkins performance?
+
+How do you secure Jenkins (authentication, authorization, RBAC)?
+
+🔹 D. Git + Jenkins (Scenario-Based)
+
+How do you set up a Jenkins pipeline triggered by a Git commit?
+
+How do you implement Git branching strategy in Jenkins pipelines (Git Flow, trunk-based)?
+
+How would you configure Jenkins to build only on develop and main branches?
+
+How do you integrate Jenkins with pull requests (GitHub/GitLab PR triggers)?
+
+How do you handle Git merge conflicts in a Jenkins pipeline?
+
+How do you configure Jenkins to deploy Docker images after a successful build?
+
+How do you store and manage build artifacts in Jenkins with Git versioning?
+
+How do you roll back to a previous Git commit using Jenkins pipelines?
+
+How do you set up CI/CD with GitHub Actions vs Jenkins — when would you choose one?
+
+How would you design a complete pipeline: Git commit → Jenkins build → Test → Docker build → Deploy (Kubernetes/AWS)?
