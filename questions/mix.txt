@@ -1,0 +1,130 @@
+📘 Interview Q-Bank for C++, Bash, YAML, HTML, CSS
+🔹 A. C++ (Core + OOPs + STL)
+
+Difference between C and C++.
+
+What are the main pillars of OOP in C++?
+
+Difference between struct and class in C++.
+
+What is the difference between compile-time and runtime polymorphism?
+
+Explain virtual functions and pure virtual functions.
+
+What is a virtual destructor and why is it needed?
+
+What is the difference between deep copy and shallow copy?
+
+How does memory allocation work in C++ (new, delete, malloc, free)?
+
+Difference between stack and heap allocation in C++.
+
+What are templates in C++? Difference between function and class templates.
+
+Difference between vector, list, and map in STL.
+
+How does exception handling in C++ differ from Java?
+
+Explain RAII (Resource Acquisition Is Initialization).
+
+What is friend in C++?
+
+What is the difference between const and constexpr?
+
+🔹 B. Bash (Shell Scripting)
+
+What is the difference between a shell and a terminal?
+
+What are some commonly used Bash commands? (grep, awk, sed, cut, find, ps, kill)
+
+How do you make a shell script executable?
+
+Difference between > and >> redirection operators.
+
+How do you use pipes (|) in Bash?
+
+What is the difference between &, &&, and || operators?
+
+How do you pass arguments to a Bash script? ($0, $1, $2, $#)
+
+What are environment variables in Bash?
+
+How to check exit status of last executed command? ($?)
+
+Difference between cron and at in scheduling jobs.
+
+What is shebang (#!) in shell scripts?
+
+How to debug a Bash script? (bash -x script.sh)
+
+Difference between soft link and hard link in Linux.
+
+How do you find running processes in Linux?
+
+How do you kill a process in Linux using Bash?
+
+🔹 C. YAML (Configuration Language)
+
+What is YAML? Where is it used?
+
+Difference between YAML and JSON.
+
+What are key-value pairs in YAML?
+
+How does indentation work in YAML?
+
+How do you represent arrays/lists in YAML?
+
+How do you represent nested structures in YAML?
+
+What are anchors (&) and aliases (*) in YAML?
+
+Difference between scalar, sequence, and mapping in YAML.
+
+What are multi-line strings in YAML (| vs >)?
+
+Where is YAML used in DevOps/Spring Boot/Kubernetes?
+
+🔹 D. HTML (Structure)
+
+Difference between HTML and XHTML.
+
+Difference between block-level and inline elements.
+
+What is the difference between <div> and <span>?
+
+Difference between semantic and non-semantic HTML elements.
+
+What are meta tags in HTML?
+
+Difference between relative, absolute, and fixed paths in HTML.
+
+What are HTML forms? Explain GET vs POST in forms.
+
+Difference between <script>, <link>, and <style> tags.
+
+What is the difference between id and class attributes?
+
+Difference between <ol>, <ul>, and <dl> lists.
+
+🔹 E. CSS (Styling)
+
+Difference between inline, internal, and external CSS.
+
+What is the difference between relative, absolute, fixed, and sticky positioning in CSS?
+
+Difference between em, rem, px, and % units.
+
+What are pseudo-classes and pseudo-elements in CSS?
+
+Difference between inline-block, inline, and block.
+
+Difference between relative and absolute units in CSS.
+
+Explain the difference between flexbox and grid layout.
+
+What is the difference between CSS transitions and animations?
+
+Difference between z-index and stacking context.
+
+What is the difference between responsive design and adaptive design?
