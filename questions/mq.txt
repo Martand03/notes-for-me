@@ -1,0 +1,134 @@
+⚡ Kafka & RabbitMQ Interview Questions (Complete Guide)
+🔹 A. Basics & Messaging Concepts
+
+What is message queuing and why do we use it?
+
+Difference between messaging systems (Kafka, RabbitMQ, ActiveMQ, Amazon SQS).
+
+What are producers, consumers, brokers, and topics in a messaging system?
+
+Difference between message queues and publish-subscribe model.
+
+What are the main use cases of Kafka vs RabbitMQ?
+
+🔹 B. Kafka Fundamentals
+
+What is Apache Kafka? Why is it popular in microservices?
+
+What are Kafka topics, partitions, and offsets?
+
+What is a Kafka broker?
+
+What is a Kafka consumer group?
+
+Difference between Kafka and traditional message brokers (like RabbitMQ).
+
+What are Kafka delivery semantics? (At most once, At least once, Exactly once).
+
+How does Kafka achieve fault tolerance (replication factor)?
+
+What is Kafka Zookeeper? Is it still required?
+
+What is the difference between Kafka Streams and Kafka Connect?
+
+Difference between Kafka producer synchronous vs asynchronous sends.
+
+🔹 C. RabbitMQ Fundamentals
+
+What is RabbitMQ? What protocol does it use? (AMQP).
+
+Explain RabbitMQ exchange types (Direct, Topic, Fanout, Headers).
+
+What is a binding in RabbitMQ?
+
+Difference between queue and exchange.
+
+What is RabbitMQ Virtual Host (vhost)?
+
+How does RabbitMQ handle message acknowledgments (ack, nack)?
+
+How does RabbitMQ handle retries and dead-letter queues (DLQ)?
+
+What is RabbitMQ clustering vs federation?
+
+Difference between durable, persistent, and transient messages.
+
+What are RabbitMQ plugins (management plugin, Shovel, Federation)?
+
+🔹 D. Kafka vs RabbitMQ
+
+Kafka vs RabbitMQ → When would you use one over the other?
+
+Kafka vs RabbitMQ performance comparison (throughput, latency).
+
+Kafka vs RabbitMQ message ordering guarantees.
+
+Kafka vs RabbitMQ in real-time streaming vs task queue use cases.
+
+Which is better for microservices event-driven architecture?
+
+🔹 E. Advanced Kafka
+
+How does Kafka handle exactly-once processing?
+
+What is Kafka ISR (In-Sync Replica)?
+
+Difference between leader and follower partitions in Kafka.
+
+What is Kafka compaction vs retention policy?
+
+How does Kafka handle schema evolution (Schema Registry)?
+
+What is the difference between Kafka Streams and Spark Streaming?
+
+How do you monitor Kafka (metrics, lag, dead consumers)?
+
+How do you secure Kafka (SSL, SASL, ACLs)?
+
+What is idempotent producer in Kafka?
+
+How do you tune Kafka for high throughput?
+
+🔹 F. Advanced RabbitMQ
+
+How does RabbitMQ handle high availability?
+
+What are quorum queues in RabbitMQ?
+
+How do you scale RabbitMQ consumers?
+
+How does RabbitMQ handle message ordering?
+
+Difference between RabbitMQ clustering and sharding.
+
+How do you secure RabbitMQ (TLS, authentication, permissions)?
+
+How to monitor RabbitMQ performance (Prometheus, management UI)?
+
+What is prefetch count in RabbitMQ?
+
+How does RabbitMQ handle message priority?
+
+How do you tune RabbitMQ for performance?
+
+🔹 G. Scenario-Based Questions
+
+How would you design an order processing system using Kafka?
+
+How would you design a notification system using RabbitMQ?
+
+How would you handle retries for failed messages in Kafka?
+
+How would you prevent duplicate message processing?
+
+How do you handle backpressure in Kafka and RabbitMQ?
+
+How would you migrate from RabbitMQ to Kafka?
+
+How do you guarantee message ordering in Kafka?
+
+How do you implement a dead-letter queue in RabbitMQ?
+
+How do you monitor consumer lag in Kafka?
+
+How would you design a chat application using Kafka or RabbitMQ?
