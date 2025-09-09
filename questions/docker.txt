@@ -1,0 +1,142 @@
+🐳 Docker Interview Questions (Complete Guide)
+🔹 A. Docker Fundamentals
+
+What is Docker? How is it different from Virtual Machines?
+
+What problem does Docker solve in software development?
+
+Difference between Docker image and Docker container.
+
+What are Docker layers? How does Docker use UnionFS?
+
+What is Docker Hub?
+
+How do you check running containers (docker ps) and stopped ones?
+
+Difference between docker run, docker start, and docker exec.
+
+What is the role of Docker Daemon (dockerd)?
+
+Difference between ENTRYPOINT and CMD.
+
+What are Docker volumes and why are they needed?
+
+🔹 B. Dockerfile Basics
+
+What is a Dockerfile?
+
+Common Dockerfile instructions: FROM, RUN, COPY, ADD, ENTRYPOINT, CMD.
+
+Difference between COPY and ADD.
+
+How do you pass environment variables in a Dockerfile? (ENV, ARG).
+
+What is the difference between WORKDIR and RUN cd?
+
+What is the difference between a base image and a scratch image?
+
+How does Docker layer caching work during build?
+
+What are .dockerignore files and why are they important?
+
+How do you reduce Docker image size?
+
+Difference between Alpine images and full OS images (Ubuntu, Debian).
+
+🔹 C. Multi-Stage Docker Builds
+
+What is a multi-stage Docker build? Why is it useful?
+
+How does a multi-stage build reduce image size?
+
+How do you use AS keyword in multi-stage builds? Example:
+
+FROM maven:3.8.6 AS build  
+WORKDIR /app  
+COPY . .  
+RUN mvn clean package  
+
+FROM openjdk:17-jdk  
+COPY --from=build /app/target/app.jar app.jar  
+CMD ["java", "-jar", "app.jar"]
+
+
+Difference between multi-stage builds and using multiple Dockerfiles.
+
+How do you copy only specific artifacts from a previous stage (COPY --from)?
+
+How do you optimize Docker builds using target in multi-stage builds? (docker build --target).
+
+What is the difference between build-time (ARG) and run-time (ENV) variables in multi-stage builds?
+
+How do you secure secrets in multi-stage builds (avoid COPY sensitive files)?
+
+How would you use multi-stage builds for frontend + backend projects? (Node.js build + Nginx final stage).
+
+How do multi-stage builds improve CI/CD pipelines?
+
+🔹 D. Docker Networking & Orchestration
+
+What are Docker networks? Types (bridge, host, overlay, none).
+
+Difference between EXPOSE and -p (publish port).
+
+How do containers communicate with each other in Docker?
+
+How do you connect multiple containers (e.g., app + db) without exposing ports?
+
+Difference between Docker Compose and Dockerfile.
+
+What is the role of docker-compose.yml?
+
+Difference between Docker Swarm and Kubernetes.
+
+How do you scale containers using Docker Compose?
+
+What are health checks in Docker? (HEALTHCHECK instruction).
+
+How do you handle persistent storage in Docker (volumes, bind mounts)?
+
+🔹 E. Docker Security & Best Practices
+
+What are the best practices for writing a Dockerfile?
+
+Why should you use a non-root user in Docker containers?
+
+How do you scan Docker images for vulnerabilities?
+
+How do you ensure secrets are not exposed in Docker builds?
+
+What is the difference between Docker secrets and environment variables?
+
+How do you sign and verify Docker images?
+
+How do you enforce resource limits on Docker containers (CPU, memory)?
+
+What is Docker Content Trust (DCT)?
+
+How do you keep images small and secure?
+
+Why is it bad practice to use latest tag in production?
+
+🔹 F. Scenario-Based Questions
+
+How would you write a multi-stage Dockerfile for a Spring Boot + React app?
+
+How would you optimize Docker build time in a Java Maven project?
+
+If your Docker image is 1GB+, how do you reduce its size?
+
+How would you debug a failing Docker container? (docker logs, docker exec -it)
+
+How do you handle database migrations inside Docker?
+
+How do you persist application logs from a container?
+
+How do you migrate from Docker Compose to Kubernetes?
+
+How do you handle blue-green deployment with Docker?
+
+How do you design a CI/CD pipeline with Docker + Jenkins/GitHub Actions?
+
+How do you monitor Docker containers in production? (Prometheus, ELK, Grafana).
